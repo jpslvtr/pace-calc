@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap and styles -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/CSS" rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="icon" href="img/icon.png">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <meta name="author" content="James Park">
+
+    <title>Pace Calculator</title>
+  </head>
+
+  <body>
+    <div id="pageContent" class="container"><br>
+      <div style="width: 20%; float: left">
+        <h2><a href="index.html" class="home">Pace Calculator</a></h2>
+      </div>
+      <div style="width: 80%; float: right">
+        <nav style="float: right" class="navbar" role="navigation">
+          <div>
+             <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+          </div>
+        </nav>
+      </div>
+      <br><br><hr>
+      <div class="row">
+        <div class="col-md-6">
+          <form method="post" autocomplete="off">
+            <table class="table table-striped table-bordered table-condensed">
+              <tr>
+                <td align="center" valign="middle">Time</td>
+            		<td valign="top" align="center">
+                  <table class="table table-striped table-bordered table-condensed">
+                    <tr>
+                      <td class="smallText" align="center">hour:</td>
+                      <td class="smallText" align="center">min:</td>
+                      <td class="smallText" align="center">sec:</td>
+                    </tr>
+                    <tr>
+                      <td align="center"><input type="text" name="thr" size="2" maxlength="2"></td>
+                      <td align="center"><input type="text" name="tmin" size="2" maxlength="2"></td>
+                      <td align="center"><input type="text" name="tsec" size="5" maxlength="6"></td>
+                    </tr>
+                  </table>
+                </td>
+                <td align="center" valign="top">
+                  To calculate your time, fill in your distance and pace then click here:<br>
+                  <input type="button" class="pulldown" onClick="var myform = document.forms[0]; CalcTime(myform)" value="Calculate Time">
+                </td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle">Distance</td>
+                <td valign="top" align="center">
+                  <input type="text" name="dist" size="7" maxlength="8"> <select name="dunit" class="pulldown">
+            				<option value="Mile" selected>&nbsp;Miles</option>
+            				<option value="Kilometer">&nbsp;Kilometers</option>
+            				<option value="Meter">&nbsp;Meters</option>
+            				<option value="Yard">&nbsp;Yards</option>
+            			</select><br>
+            			or<br>
+            			<select name="event" onChange="setDunit(document.forms[0])" class="pulldown">
+            				<option value="special">&nbsp;Pick Event</option>
+            				<option value="Marathon">&nbsp;Marathon</option>
+            				<option value="Half-Marathon">&nbsp;Half-Marathon</option>
+            				<option value="5K">&nbsp;5K</option>
+            				<option value="5M">&nbsp;5M</option>
+            				<option value="8K">&nbsp;8K</option>
+            				<option value="10K">&nbsp;10K</option>
+            				<option value="15K">&nbsp;15K</option>
+            				<option value="10M">&nbsp;10M</option>
+            				<option value="20K">&nbsp;20K</option>
+            				<option value="15M">&nbsp;15M</option>
+            				<option value="25K">&nbsp;25K</option>
+            				<option value="30K">&nbsp;30K</option>
+            				<option value="20M">&nbsp;20M</option>
+            			</select>
+                </td>
+                <td align="center" valign="center">
+                  To calculate your distance, fill in your time and pace then click here:<br>
+                  <input type="button" class="pulldown" onClick="var myform = document.forms[0]; CalcDist(myform)" value="Calculate Distance">
+                </td>
+              </tr>
+              <tr>
+                <td align="center" valign="middle">Pace</td>
+                <td valign="top" align="center">
+                  <table class="table table-striped table-bordered table-condensed">
+                    <tr>
+                      <td class="smallText" align="center">hour:</td>
+                      <td class="smallText" align="center">min:</td>
+                      <td class="smallText" align="center">sec:</td>
+                    </tr>
+              			<tr>
+              				<td align="center">
+              					<input type="text" name="phr" size="2" maxlength="2">
+              				</td>
+              				<td align="center">
+              					<input type="text" name="pmin" size="2" maxlength="2">
+              				</td>
+                      <td align="center">
+                        <input type="text" name="psec" size="5" maxlength="6">
+                      </td>
+              			</tr>
+              			<tr>
+              				<td>Per</td>
+              				<td colspan=2><select name="punit" size="1" class="pulldown">
+              						<option value="Mile" selected>&nbsp;Mile</option>
+              						<option value="Kilometer">&nbsp;Kilometer</option>
+              						<option value="Half Mile">&nbsp;880 yrds</option>
+              						<option value="Quarter Mile">&nbsp;440 yrds</option>
+              						<option value="Eigth Mile">&nbsp;220 yrds</option>
+              						<option value="1500M">&nbsp;1500 M</option>
+              						<option value="800M">&nbsp;800 M</option>
+              						<option value="400M">&nbsp;400 M</option>
+              						<option value="200M">&nbsp;200 M</option>
+              						<option value="Meter">&nbsp;Meter</option>
+              						<option value="Yard">&nbsp;Yard</option>
+              						</select>
+              				</td>
+              			</tr>
+            			</table>
+                </td>
+                <td align="center" valign="middle">
+                  To calculate your pace, fill in your time and distance then click here:<br>
+                  <input type="button" class="pulldown" onClick="myform = document.forms[0]; CalcPace(myform)" value="Calculate Pace">
+                </td>
+              </tr>
+              <tr>
+                <td colspan=3 align="center">
+                  <input type="button" class="pulldown" value="Reset" onClick="document.forms[0].reset()">
+                </td>
+              </tr>
+            </table>
+          </form>
+          <p>
+            Distances and seconds are displayed to the nearest hundredth decimal
+            place, but calculations are done to the nearest ten-millionth decimal place.
+          </p>
+        </div>
+      </div>
+      <div id="footer">
+        <p><br>&copy; 2023 James Park</p>
+      </div>
+    </div>
+    <script src="js/pacecalc.js"></script>
+  </body>
+</html>
