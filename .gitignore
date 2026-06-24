@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Editor / tooling
+.vscode/
+.idea/
+*.swp
+
+# Claude
+CLAUDE.md
+.claude/
+
+# Logs
+*.log
