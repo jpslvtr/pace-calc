@@ -14,3 +14,9 @@ CLAUDE.md
 
 # Logs
 *.log
+
+# Claude, scratch (wm), and repo-packing artifacts
+CLAUDE.local.md
+wm*
+repomix*
+repopack*
